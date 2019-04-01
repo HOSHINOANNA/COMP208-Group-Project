@@ -6,49 +6,121 @@ public class animationController : MonoBehaviour
 {
     public Animator animator;
 
-
-
     private Transform tr;
     private Vector3 localVelocity;
 
     private Vector3 lastPosition;
+    private bool up = true;
+    private bool down = true;
+    private bool left = true;
+    private bool right = true;
+  
 
     // Start is called before the first frame update
     void Start()
     {
+
         animator = this.GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.LeftShift)){
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                animator.SetBool("Run", true);
+            } }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                animator.SetBool("Run", true);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                animator.SetBool("Run", true);
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                animator.SetBool("Run", true);
+            }
+        }
         // MOVEMENT KEYBOARD CONTROLLER
         if (Input.GetKeyDown(KeyCode.W))
         {
             animator.SetBool("Walk", true);
+            up = false;
 
             gameController();
 
         }
         if (Input.GetKeyUp(KeyCode.W))
         {
-            animator.SetBool("Walk", false);
+            up = true;
 
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
+            gameController();
             animator.SetBool("Walk", true);
+            down = false;
 
         }
 
 
         if (Input.GetKeyUp(KeyCode.S))
         {
-            animator.SetBool("Walk", false);
+            down = true;
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            gameController();
+            animator.SetBool("Walk", true);
+            left = false;
 
         }
 
-        gameController();
+
+        if (Input.GetKeyUp(KeyCode.A))
+        {
+            left = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            gameController();
+            animator.SetBool("Walk", true);
+            right = false;
+
+        }
+
+
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            right = true;
+        }
+
+        if (up && down && left && right)
+        {
+            animator.SetBool("Walk", false);
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift)&&Input.GetKeyDown(KeyCode.W))
+        {
+            animator.SetBool("Run", true);
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            animator.SetBool("Run", false);
+        }
+            gameController();
         // ATTACK WING KEYBOARD CONTROLLER
 
     }
@@ -99,4 +171,12 @@ public class animationController : MonoBehaviour
         }
 
     }
+
+
 }
+
+
+
+
+
+   

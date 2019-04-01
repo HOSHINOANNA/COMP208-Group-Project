@@ -21,29 +21,58 @@ public class keyboard : MonoBehaviour
     }
     void Update()
     {
-        
+         
         if (Input.GetKey(KeyCode.W))
         {
-            setState(UP);
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                        }
+            else
+            {
+       
+                setState(UP);
+            }
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            setState(DOWN);
+            if (Input.GetKeyDown(KeyCode.Space)) { }
+            else
+            {
+                setState(DOWN);
+            }
+           
         }
+        else if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (Input.GetKeyDown(KeyCode.Space)) { }
+            else
+            {
+                setState(UP);
+            }
+        }
+        
 
         if (Input.GetKey(KeyCode.A))
         {
-            setState(LEFT);
+            if (Input.GetKey(KeyCode.Space)) { }
+            else
+            {
+                setState(LEFT);
+            }
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            setState(RIGHT);
+            if (Input.GetKeyDown(KeyCode.Space)) { }
+            else
+            {
+                setState(RIGHT);
+            }
         }
 
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             speed = 4f;
+           
             
         }
 
