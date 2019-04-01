@@ -14,7 +14,8 @@ public class animationController : MonoBehaviour
     private bool down = true;
     private bool left = true;
     private bool right = true;
-  
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class animationController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift)){
             if (Input.GetKeyDown(KeyCode.A))
@@ -80,33 +81,33 @@ public class animationController : MonoBehaviour
         {
             down = true;
         }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            gameController();
-            animator.SetBool("Walk", true);
-            left = false;
-
-        }
-
-
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            left = true;
-        }
-
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            gameController();
-            animator.SetBool("Walk", true);
-            right = false;
-
-        }
+       // if (Input.GetKeyDown(KeyCode.A))
+      //  {
+      //      gameController();
+       //     animator.SetBool("Walk", true);
+      //      left = false;
+//
+     //   }
 
 
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            right = true;
-        }
+    //    if (Input.GetKeyUp(KeyCode.A))
+     //   {
+     //       left = true;
+   //     }
+
+     //   if (Input.GetKeyDown(KeyCode.D))
+      //  {
+      //      gameController();
+      //      animator.SetBool("Walk", true);
+      //      right = false;
+
+      //  }
+
+
+      //  if (Input.GetKeyUp(KeyCode.D))
+     //   {
+   //         right = true;
+   //     }
 
         if (up && down && left && right)
         {

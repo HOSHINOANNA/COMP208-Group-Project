@@ -12,8 +12,11 @@ public class keyboard : MonoBehaviour
     private int DOWN = 2;
     private int LEFT = 3;
     private int RUN = 4;
-
-
+    bool isRotating;
+    float ver = 0;
+    float hor = 0;
+    public float turnspeed = 10;
+    private float rotateSpeed = 2; //摄像机旋转速度
     public float speed = 2.5f;
 
     void Start()
@@ -21,7 +24,18 @@ public class keyboard : MonoBehaviour
     }
     void Update()
     {
-         
+       // RotateView();
+        hor = Input.GetAxis("Horizontal");
+        ver = Input.GetAxis("Vertical");
+
+        if (hor != 0 || ver != 0)
+        {
+            //转身
+            Rotating(hor, ver);
+
+
+
+        }
         if (Input.GetKey(KeyCode.W))
         {
             if (Input.GetKeyDown(KeyCode.Space)) {
@@ -86,33 +100,51 @@ public class keyboard : MonoBehaviour
 
     void setState(int currState)
     {
-        Vector3 transformValue = new Vector3();
-        int rotateValue = (currState - State) * 90;
+        //Vector3 transformValue = new Vector3();
+        // int rotateValue = (currState - State) * 90;
 
         switch (currState)
         {
             case 0:
-                transformValue = Vector3.forward * Time.deltaTime * speed;
-              
-               break;
+                // transformValue = Vector3.forward * Time.deltaTime * speed;
+                this.transform.Translate(Vector3.forward * Time.deltaTime * speed);
+                break;
             case 1:
-                transformValue = Vector3.right * Time.deltaTime * speed;
-               
+                // transformValue = Vector3.right * Time.deltaTime * speed;
+               // this.transform.Translate(Vector3.right * Time.deltaTime * speed);
                 break;
             case 2:
-                transformValue = Vector3.back * Time.deltaTime * speed;
-            
+                //  transformValue = Vector3.back * Time.deltaTime * speed;
+                this.transform.Translate(Vector3.back * Time.deltaTime * -speed);
                 break;
             case 3:
-                transformValue = Vector3.left * Time.deltaTime * speed;
-              
+                //this.transform.Translate(Vector3.left * Time.deltaTime * speed);
+
                 break;
+        } }
+
+        // transform.Rotate(Vector3.up, rotateValue);
+        //transform.Translate(transformValue, Space.World);
+        //oldState = State;
+        //sState = currState;
+        void Rotating(float hor, float ver)
+        {
+            //获取方向
+            Vector3 dir = new Vector3(hor, 0, ver);
+            //将方向转换为四元数
+            Quaternion quaDir = Quaternion.LookRotation(dir, Vector3.up);
+            //缓慢转动到目标点
+            transform.rotation = Quaternion.Lerp(transform.rotation, quaDir, Time.fixedDeltaTime * turnspeed);
+
+
+
         }
 
-        transform.Rotate(Vector3.up, rotateValue);
-        transform.Translate(transformValue, Space.World);
-        oldState = State;
-        State = currState;
 
-    }
+   
+
 }
+
+   
+   
+
