@@ -1,0 +1,7 @@
+这个是 wenxiang leng 的branch工作日志：
+
+2019/4/1 复制自master branch
+2019/4/1 添加了任务属性控制（血条/经验/金钱系统)
+	未来计划添加：血条 经验 金钱系统 UI显示，人物死亡执行的相关函数
+	位置：/main/CharacterAttribute.cs
+	

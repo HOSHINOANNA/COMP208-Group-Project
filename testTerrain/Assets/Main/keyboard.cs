@@ -19,7 +19,8 @@ public class keyboard : MonoBehaviour
     void Start()
     {
     }
-    void Update()
+
+    void FixedUpdate()
     {
          
         if (Input.GetKey(KeyCode.W))
