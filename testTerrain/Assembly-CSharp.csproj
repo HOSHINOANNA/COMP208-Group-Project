@@ -82,6 +82,7 @@
     <Compile Include="Assets\Suriyun\Scripts\AnimatorController.cs" />
     <Compile Include="Assets\Suriyun\Scripts\MouseOrbitImproved.cs" />
     <Compile Include="Assets\Suriyun\Scripts\Swapper.cs" />
+    <None Include="Assets\unity3d.txt" />
     <None Include="Assets\Low Poly Trees Pack\Fantasy Skybox FREE\Fog and Ambient references.txt" />
     <None Include="Assets\Suriyun\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
     <None Include="Assets\Low Poly Trees Pack\laxer Assets\Terrain Shader\Shaders\HeightBlendNormalx5.shader" />
