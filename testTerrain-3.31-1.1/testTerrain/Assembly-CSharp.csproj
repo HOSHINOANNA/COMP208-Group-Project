@@ -70,6 +70,9 @@
     <Compile Include="Assets\Main\animationController.cs" />
     <Compile Include="Assets\Main\cameraController.cs" />
     <Compile Include="Assets\Main\keyboard.cs" />
+    <Compile Include="Assets\main2\Character\CharacterAttribute.cs" />
+    <Compile Include="Assets\main2\Monster\MonsterController.cs" />
+    <Compile Include="Assets\Pixelplacement\iTweenPath\iTweenPath.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\MenuSceneLoader.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\SampleScenes\Menu\Scripts\SceneAndURLLoader.cs" />
